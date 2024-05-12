@@ -1,6 +1,5 @@
 // const { API_URL } = require("./constants");
-// const { postRequest } = require("./utils/apiFunctions");
-
+import { postRequest } from "./utils/apiFunctions.js";
 document
   .getElementById("loginForm")
   .addEventListener("submit", function (event) {
@@ -12,29 +11,22 @@ document
     // Basic validation check
     if (username && password) {
       console.log("email:", username, "Password:", password);
-      fetch(`http://localhost:5000/api/v1/auth/signin`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: "johndoe@example.com",
-          password: "password123",
-        }),
-        mode: "cors", // no-cors, *cors, same-origin
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((res) => {
-        console.log(
-          "res",
-          res.json().then((data) => console.log(data))
-        );
-      });
+      const response = postRequest("auth/signin", {
+        email: username,
+        password: password,
+      })
+        .then((response) => {
+          // navigate to index.html
+          window.location.href = "index.html";
+          console.log("response", response);
+        })
+        .catch((err) => {
+          alert("Failed to login");
+          console.log("error", err);
+        });
 
-      //   postRequest(
-      //     { email: "johndoe@example.com", password: "password123" },
-      //     alert("Login successful"),
-      //     alert("Login failed")
-      //   );
+      console.log("response", response);
       //   alert("Login successful for " + username);
     } else {
       alert("Please enter both username and password");

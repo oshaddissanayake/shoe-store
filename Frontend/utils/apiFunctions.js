@@ -1,18 +1,31 @@
-export const postRequest = (body, afterSuccess, afterError) => {
-  fetch(`http://localhost:5000/api/v1/auth/signin`, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      console.log("response", response.body.data);
+import { BASE_URL } from "../constants.js";
+
+export const postRequest = (endpoint, body) => {
+  return new Promise((resolve, reject) => {
+    fetch(`http://localhost:5000/${BASE_URL}/${endpoint}`, {
+      method: "POST",
+      body: JSON.stringify(body),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .catch((err) => {
-      //   alert("Login failed");
-      console.log("err", err);
-    });
+      .then((response) => {
+        response
+          .json()
+          .then((data) => {
+            console.log("data", data);
+            resolve(data);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      })
+      .catch((err) => {
+        reject(err);
+        alert("Failed to login");
+      });
+  });
 };
 
 export const getRequest = () => {

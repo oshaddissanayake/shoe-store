@@ -25,84 +25,103 @@
         <h1>Find Your Residence Home</h1>
         <p>From as low as $10 per day with limited time offer discounts</p>
     </section>
-    <!-- Property Type Listings -->
-<section class="property-types">
-    <h2>What are you looking for?</h2>
-    <div class="property-grid">
-        <div class="property-item">
-            <img src="images/modern-villa.png" alt="Modern Villa">
-            <h3>Modern Villa</h3>
-        </div>
-        <div class="property-item">
-            <img src="images/apartment.png" alt="Apartment">
-            <h3>Apartment</h3>
-        </div>
-        <div class="property-item">
-            <img src="images/family-house.png" alt="Family House">
-            <h3>Family House</h3>
-        </div>
-        <div class="property-item">
-            <img src="images/town-house.png" alt="Town House">
-            <h3>Town House</h3>
-        </div>
-    </div>
-</section>
-
-<!-- City Listings -->
-<section class="cities">
-    <h2>Find Properties in These Cities</h2>
-    <div class="city-grid">
-        <div class="city-item">
-            <img src="images/miami.jpg" alt="Miami">
-            <h3>Miami</h3>
-            <p>20 Properties</p>
-        </div>
-        <div class="city-item">
-            <img src="images/los-angeles.jpg" alt="Los Angeles">
-            <h3>Los Angeles</h3>
-            <p>50 Properties</p>
-        </div>
-        <div class="city-item">
-            <img src="images/new-york.jpg" alt="New York">
-            <h3>New York</h3>
-            <p>40 Properties</p>
-        </div>
-        <div class="city-item">
-            <img src="images/florida.jpg" alt="Florida">
-            <h3>Florida</h3>
-            <p>17 Properties</p>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Properties -->
-<section class="featured-properties">
-    <h2>Featured Properties</h2>
-    <div class="properties-grid">
-        <div class="property-item">
-            <img src="images/property-1.jpg" alt="Eaton Garth Penthouse">
-            <div class="details">
-                <h3>Eaton Garth Penthouse</h3>
-                <p class="price">$4500</p>
-                <p class="location">25-25 Broadway, Astoria</p>
-                <p>Beds: 3 | Baths: 1 | Sqft: 350</p>
-                <button>Get More Details</button>
+    <section class="property-types">
+        <h2>What are you looking for?</h2>
+        <div class="property-grid">
+            <div class="property-item">
+                <img src="images/1.jpg" alt="Modern Villa">
+                <h3>Modern Villa</h3>
+            </div>
+            <div class="property-item">
+                <img src="images/2.jpg" alt="Apartment">
+                <h3>Apartment</h3>
+            </div>
+            <div class="property-item">
+                <img src="images/3.jpg" alt="Family House">
+                <h3>Family House</h3>
+            </div>
+            <div class="property-item">
+                <img src="images/4.jpg" alt="Town House">
+                <h3>Town House</h3>
             </div>
         </div>
-        <div class="property-item">
-            <img src="images/property-2.jpg" alt="Quality House For Sale">
-            <div class="details">
-                <h3>Quality House For Sale</h3>
-                <p class="price">$150/mo</p>
-                <p class="location">318 E 84th St, New York</p>
-                <p>Beds: 4 | Baths: 2 | Sqft: 550</p>
-                <button>Get More Details</button>
-            </div>
-        </div>
-    </div>
-</section>
-
     </section>
+    
+    <!-- City Listings in a single row -->
+    <section class="cities">
+        <h2>Find Properties in These Cities</h2>
+        <div class="city-grid">
+            <div class="city-item">
+                <img src="images/5.jpg" alt="Miami">
+                <h3>Miami</h3>
+                <p>20 Properties</p>
+            </div>
+            <div class="city-item">
+                <img src="images/1.jpg" alt="Los Angeles">
+                <h3>Los Angeles</h3>
+                <p>50 Properties</p>
+            </div>
+            <div class="city-item">
+                <img src="images/2.jpg" alt="New York">
+                <h3>New York</h3>
+                <p>40 Properties</p>
+            </div>
+            <div class="city-item">
+                <img src="images/3.jpg" alt="Florida">
+                <h3>Florida</h3>
+                <p>17 Properties</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Updated Properties section with 3 more items -->
+    <div id="properties">
+        <div class="property">
+            <img src="images/5.jpg" alt="Wheelwright Cottage">
+            <h3>Wheelwright Cottage</h3>
+            <p>$14,086.00 AUD</p>
+            <p>1800 sq ft</p>
+            <button onclick="addToCart('Wheelwright Cottage', 14086, '1800 sq ft')">Add to Cart</button>
+        </div>
+        <div class="property">
+            <img src="images/1.jpg" alt="Luxury Villa">
+            <h3>Luxury Villa</h3>
+            <p>$18,500.00 AUD</p>
+            <p>2500 sq ft</p>
+            <button onclick="addToCart('Luxury Villa', 18500, '2500 sq ft')">Add to Cart</button>
+        </div>
+        <div class="property">
+            <img src="images/2.jpg" alt="Cozy Bungalow">
+            <h3>Cozy Bungalow</h3>
+            <p>$9,999.00 AUD</p>
+            <p>1200 sq ft</p>
+            <button onclick="addToCart('Cozy Bungalow', 9999, '1200 sq ft')">Add to Cart</button>
+        </div>
+        <div class="property">
+            <img src="images/3.jpg" alt="Beachfront Condo">
+            <h3>Beachfront Condo</h3>
+            <p>$22,000.00 AUD</p>
+            <p>2100 sq ft</p>
+            <button onclick="addToCart('Beachfront Condo', 22000, '2100 sq ft')">Add to Cart</button>
+        </div>
+        <div class="property">
+            <img src="images/3.jpg" alt="Beachfront Condo">
+            <h3>Beachfront Condo</h3>
+            <p>$22,000.00 AUD</p>
+            <p>2100 sq ft</p>
+            <button onclick="addToCart('Beachfront Condo', 22000, '2100 sq ft')">Add to Cart</button>
+        </div>
+    </div>
+    
+    <div id="cart" class="cart-hidden">
+        <h2>Shopping Cart</h2>
+        <ul id="cartItems"></ul>
+        <p id="total">Total: $0.00 AUD</p>
+        <button id="checkoutButton" style="display:none;" onclick="checkout()">Go to Checkout</button>
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+    
+    
     <footer>
         <p>Power your search with our Pixelwave real estate platform for timely listings and a seamless experience.</p>
         <address>

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 dotenv.config({ path: '../config.env' });
 
 //Configured the database connection
-const URL = process.env.DATABASE||'mongodb+srv://theairpix:p1LZJ6LD7mUHpxyl@shoestore.ylf8dva.mongodb.net/?retryWrites=true&w=majority&appName=shoestore';
+const URL = process.env.DATABASE||'mongodb+srv://admin:admin@shoesdb.0z06ymc.mongodb.net/?retryWrites=true&w=majority&appName=shoesDB';
 mongoose
     .connect(URL,{
     })

@@ -56,3 +56,16 @@ button {
 button:hover {
     background-color: #ffe168;
 }
+.redirect-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.redirect-link a {
+    color: #5c67f2;
+    text-decoration: none; /* Removes underline */
+}
+
+.redirect-link a:hover {
+    text-decoration: underline; /* Adds underline on hover for better interaction feedback */
+}

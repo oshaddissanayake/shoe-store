@@ -45,7 +45,7 @@ document
         last_name: lastname,
         email: email,
         mobile: phone,
-        password: "password123",
+        password: password,
         gender: gender,
       })
         .then((res) => {

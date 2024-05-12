@@ -9,6 +9,7 @@ const compression = require("compression");
 const AppError = require("./Utils/AppError");
 
 const authRouter = require("./Routes/authRoutes");
+const itemRouter = require("./Routes/itemRoutes");
 const app = express();
 
 // Configure the cors
@@ -59,6 +60,7 @@ app.use(
 app.use(compression());
 const base = "/api/v1";
 app.use(`${base}/auth`, authRouter);
+app.use(`${base}/item`, itemRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

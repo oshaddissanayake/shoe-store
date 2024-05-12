@@ -53,7 +53,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 select:focus {
-    border-color: #5c67f2; /* Focus state with a blue border */
+    border-color: #ffe168; /* Focus state with a blue border */
 }
 
 /* Styling for the submit button */
@@ -61,7 +61,7 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
-    background-color: #5c67f2; /* Consistent theme color */
+    background-color: #ffe168; /* Consistent theme color */
     color: white;
     border: none;
     border-radius: 4px;
@@ -70,5 +70,5 @@ button {
 }
 
 button:hover {
-    background-color: #4a54e1; /* Slightly darker on hover */
+    background-color: #ffe168; /* Slightly darker on hover */
 }

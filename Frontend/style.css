@@ -1,56 +1,4 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
-
-.navbar .logo {
-    font-size: 24px;
-}
-
-.navbar nav ul {
-    list-style: none;
-    display: flex;
-}
-
-.navbar nav ul li {
-    padding: 0 15px;
-}
-
-.navbar nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.hero {
-    background-image: url('your-image-url');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.property-types, .cities, .featured-properties {
-    padding: 20px;
-    text-align: center;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
 .property-grid, .city-grid, .properties-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -85,4 +33,163 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+#properties .property {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 300px;
+}
+
+#cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#cart.cart-shown {
+    transform: translateX(0);
+}
+
+.cart-hidden {
+    transform: translateX(100%);
+}
+
+#cartItems li {
+    list-style: none;
+}
+.property-grid, .city-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.property-item, .city-item {
+    flex: 1 1 200px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#properties .property {
+    flex: 1 1 200px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.property-item img, .city-item img {
+    width: 100%;  /* makes the image fill the container */
+    height: 200px; /* fixed height for all images */
+    object-fit: cover; /* ensures the image covers the area without distorting aspect ratio */
+    border-radius: 5px; /* optional, for rounded corners */
+}
+
+#properties .property img {
+    width: 100%; /* makes the image fill the container */
+    height: 200px; /* fixed height for all images */
+    object-fit: cover; /* ensures the image covers the area, cropping if necessary */
+    border-radius: 5px; /* optional, for rounded corners */
+}
+footer {
+    background-color: #343a40; /* dark footer background */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background: #ffffff; /* white background for cart */
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#cart.cart-shown {
+    transform: translateX(0);
+}
+
+#cartItems li {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #28a745; /* green color for buttons */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838; /* darker green on hover */
+}
+
+#checkoutButton {
+    width: 100%;
+}
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* light gray background for the page */
+    color: #333; /* dark gray text for readability */
+}
+
+header {
+    background-color: #007bff; /* primary blue */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3; /* darker blue for hover */
+}
+
+.hero {
+    padding: 20px;
+    background: #e9ecef; /* light gray background for hero section */
+    text-align: center;
 }

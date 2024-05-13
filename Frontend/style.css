@@ -570,20 +570,26 @@ footer {
 }
 
 footer {
-  background-color: #000000; /* Dark background for contrast */
-  color: #f5f5f5; /* Light text for readability */
-  padding: 20px;
-  font-size: 14px;
+  background-color: #282828; /* Deep gray for a modern, sleek look */
+  color: #f5f5f5; /* Light text for high contrast and readability */
+  padding: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aesthetic font choice */
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
+  justify-content: space-between; /* Adjusted for better space utilization */
+  align-items: center;
+  padding: 20px;
 }
 
 .footer-section h4 {
-  color: #ffcc23; /* A bright color for headings */
+  color: #ff9408; /* RichLook's brand color */
+  margin-bottom: 10px;
+}
+
+.footer-section {
+  margin-right: 20px;
 }
 
 .footer-section ul {
@@ -597,23 +603,44 @@ footer {
   transition: color 0.3s;
 }
 
-.footer-section ul li a:hover {
-  color: #ffcc23; /* Hover effect for links */
+.footer-section ul li a:hover, .footer-section a:hover {
+  color: #ff9408; /* Enhancing interactivity with a hover effect */
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #444; /* Subtle top border for separation */
   padding-top: 10px;
+  margin-top: 20px;
+  font-size: 12px;
 }
 
-a {
-  color: #ffcc23; /* Ensuring all links follow the theme */
+.footer-logo {
+  font-size: 24px; /* Increased font size for the RichLook name */
+  font-weight: bold; /* Making the logo/name more prominent */
+  color: #ff9408; /* Ensuring the brand name stands out */
+  padding-bottom: 20px; /* Additional spacing */
 }
 
 img {
   width: 24px;
   height: 24px;
   margin-right: 10px;
+  vertical-align: middle; /* Aligns images with text */
+}
+
+a {
+  color: #ff9408;
+}
+
+/* Additional styling for responsiveness and aesthetics */
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
+  }
 }

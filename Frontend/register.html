@@ -24,7 +24,14 @@
         </div>
         <div class="input-group">
           <label for="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" required />
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            maxlength="10"
+            pattern="\d{10}"
+            required
+          />
         </div>
         <div class="input-group">
           <label for="phone">Password:</label>
@@ -34,8 +41,9 @@
           <label for="gender">Gender:</label>
           <select id="gender" name="gender" required>
             <option value="">Select...</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="Make">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <button type="submit">Register</button>

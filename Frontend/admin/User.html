@@ -3,40 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixelwave Real Estate</title>
+    <title>Richlook | Shoe Store</title>
     <link rel="stylesheet" href="admin_styles.css" />
 
     <script>
-        //Delete item
-      function deleteItem(id) {
-        if (confirm("Are you sure you want to delete this item?")) {
-          fetch(`http://localhost:5000/api/v1/item/delete/${id}`, {
+      //Delete item
+      function deleteUser(id) {
+        if (confirm("Are you sure you want to delete this user?")) {
+          fetch(`http://localhost:5000/api/v1/auth/delete/${id}`, {
             method: "DELETE",
           })
             .then((response) => response.json())
             .then((data) => {
-              alert("Item has been deleted successfully.");
+              alert("User has been deleted successfully.");
               location.reload();
             })
-            .catch((error) => console.error("Error deleting item:", error));
+            .catch((error) => console.error("Error deleting user:", error));
         }
       }
     </script>
   </head>
   <body>
     <header>
-      <div class="logo">Xero<span>Source</span></div>
+      <div class="logo">Rich<span>Look</span></div>
     </header>
-    <div class="nav-btn">Menu</div>
+    <div class="nav-btn"></div>
     <div class="container">
       <div class="sidebar">
         <nav>
           <a href="#">Rich<span>Look</span></a>
           <ul>
-            <br>
+            <br />
             <li><a href="#">Dashboard</a></li>
             <li><a href="Admin.html">Stock Management</a></li>
-            <li class="active"><a href="User.html">User Management</a></li>
+            <li class="active"><a href="#">User Management</a></li>
             <li><a href="#">Social</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
@@ -44,21 +44,25 @@
       </div>
       <div class="main-content">
         <h1 style="font-size: 35px; color: rgb(58, 58, 58)">
-          Stock Management
+          User Management
         </h1>
         <br /><br />
         <button class="add-button">+ Add</button>
-        <input type="text" id="searchInput" placeholder="Search..." class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search..."
+          class="search-bar"
+        />
         <table>
           <thead>
             <tr>
-              <th>#</th>  
-              <th>Item Name</th>
-              <th>Brand</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Size</th>
-              <th>Status</th>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Gender</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -68,211 +72,250 @@
         </table>
       </div>
     </div>
-    <script>
-        
-      document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.getElementById('searchInput');
-         searchInput.addEventListener('keyup', function() {
-        const filter = searchInput.value.toUpperCase();
-        const rows = document.getElementById("itemTableBody").getElementsByTagName("tr");
 
-        for (let i = 0; i < rows.length; i++) {
-            let row = rows[i];
-            let textContent = row.textContent || row.innerText;
-            if (textContent.toUpperCase().indexOf(filter) > -1) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
-        }
-    });
-        fetchItems();
-
-        //Fetch items
-        async function fetchItems() {
-          try {
-            const response = await fetch(
-              "http://localhost:5000/api/v1/item/getall"
-            );
-            if (!response.ok) throw new Error("Failed to fetch");
-            const data = await response.json();
-            if (data && data.data && data.data.items) {
-              displayItems(data.data.items);
-            } else {
-              console.error("Expected data structure not found:", data);
-            }
-          } catch (error) {
-            console.error("Error fetching items:", error);
-          }
-        }
-
-        //Display items in table rows
-        function displayItems(items) {
-          const container = document.getElementById("itemTableBody");
-          const staticRow = document.createElement("tr");
-          let rowIndex = 1; 
-          container.appendChild(staticRow); 
-
-          items.forEach((item) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-            <td>${rowIndex}</td>
-            <td>${item.item_name}</td>
-            <td>${item.brand}</td>
-            <td>${item.price}</td>
-            <td>${item.qty}</td>
-            <td>${item.size}</td>
-            <td>${item.enabled ? "Active" : "Inactive"}</td>
-            <td>
-                <center>
-                <button onclick="editItem('${
-                  item._id
-                }')" class="edit-btn">Edit</button>
-                <button onclick="deleteItem('${
-                  item._id
-                }')" class="delete-btn">Delete</button>
-                </center>
-            </td>
-            `;
-            container.appendChild(row);
-            rowIndex++;
-          });
-        }
-      });
-    </script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixelwave Real Estate</title>
-    <link rel="stylesheet" href="admin_styles.css" />
-
-    <script>
-        //Delete item
-      function deleteItem(id) {
-        if (confirm("Are you sure you want to delete this item?")) {
-          fetch(`http://localhost:5000/api/v1/item/delete/${id}`, {
-            method: "DELETE",
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              alert("Item has been deleted successfully.");
-              location.reload();
-            })
-            .catch((error) => console.error("Error deleting item:", error));
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">Xero<span>Source</span></div>
-    </header>
-    <div class="nav-btn">Menu</div>
-    <div class="container">
-      <div class="sidebar">
-        <nav>
-          <a href="#">Rich<span>Look</span></a>
-          <ul>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="text-align: center; color: rgb(58, 58, 58)">Add New User</h2>
+        <div class="container">
+          <form
+            id="contact"
+            action=""
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <fieldset>
+              <input
+                placeholder="Enter First Name*"
+                id="first_name"
+                type="text"
+                name="first_name"
+                tabindex="1"
+                required
+                autofocus
+              />
+            </fieldset>
+            <fieldset>
+              <input
+                placeholder="Enter Last Name*"
+                id="last_name"
+                type="text"
+                name="last_name"
+                tabindex="1"
+                required
+                autofocus
+              />
+            </fieldset>
+            <fieldset>
+              <input
+                placeholder="Enter Email*"
+                id="email"
+                type="email"
+                name="email"
+                tabindex="3"
+                required
+              />
+            </fieldset>
+            <fieldset>
+              <input
+                placeholder="Enter Phone Number*"
+                id="mobile"
+                type="tel"
+                name="mobile"
+                tabindex="3"
+                required
+              />
+            </fieldset>
+            <fieldset>
+              <input
+                placeholder="Enter Password*"
+                id="password"
+                type="password"
+                name="password"
+                tabindex="3"
+                required
+              />
+            </fieldset>
+            <fieldset>
+              <select id="gender" name="gender" required>
+                <option value="" disabled selected>
+                  Please Select Gender*
+                </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </fieldset>
             <br>
-            <li><a href="#">Dashboard</a></li>
-            <li class="active"><a href="#">Stock Management</a></li>
-            <li><a href="#">User Management</a></li>
-            <li><a href="#">Social</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="main-content">
-        <h1 style="font-size: 35px; color: rgb(58, 58, 58)">
-          Stock Management
-        </h1>
-        <br /><br />
-        <button class="add-button">+ Add</button>
-        <input type="text" id="searchInput" placeholder="Search..." class="search-bar">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>  
-              <th>Item Name</th>
-              <th>Brand</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Size</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="itemTableBody">
-            <!-- Items will be loaded here by JavaScript -->
-          </tbody>
-        </table>
+              <button
+                style="width: 40%"
+                name="submit"
+                type="submit"
+                id="contact-submit"
+                data-submit="...Sending"
+              >
+                Submit
+              </button>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <h2 style="text-align: center; color: rgb(58, 58, 58)">
+          Edit Item Details
+        </h2>
+        <form id="contact2">
+          <input type="hidden" id="edit-id" />
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Name*</p>
+            <input
+              id="edit-item_name"
+              type="text"
+              placeholder="Enter Item Name*"
+              name="edit-item_name"
+              tabindex="1"
+              autofocus
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Qty*</p>
+            <input
+              placeholder="Enter Item Qty*"
+              id="edit-qty"
+              type="number"
+              min="1"
+              tabindex="2"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Price*</p>
+            <input
+              placeholder="Your Item Price*"
+              id="edit-price"
+              type="text"
+              name="edit-price"
+              min="0"
+              tabindex="3"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Size*</p>
+            <select id="edit-size" name="edit-size" required>
+              <option value="" disabled selected>
+                Please Select Shoe Size*
+              </option>
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Brand*</p>
+            <select id="edit-brand" name="edit-brand" required>
+              <option value="" disabled selected>
+                Please Select Shoe Brand*
+              </option>
+              <option value="Nike">Nike</option>
+              <option value="Addidas">Addidas</option>
+              <option value="Puma">Puma</option>
+              <option value="New Balance">New Balance</option>
+              <option value="Tommy">Tommy</option>
+            </select>
+          </fieldset>
+          <br />
+          <!-- <fieldset>
+            <label for="image">Upload Image*</label>
+            <input type="file" id="image" name="image" accept="image/png" required>
+          </fieldset> -->
+          <fieldset>
+            <label for="active-toggle">Active:</label>
+            <input
+              type="checkbox"
+              id="edit-enabled"
+              name="enabled"
+              class="toggle-input"
+            />
+          </fieldset>
+          <br />
+          <button style="width: 40%" type="submit">Update Item</button>
+        </form>
+      </div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('keyup', function() {
-        const filter = searchInput.value.toUpperCase();
-        const rows = document.getElementById("itemTableBody").getElementsByTagName("tr");
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("keyup", function () {
+          const filter = searchInput.value.toUpperCase();
+          const rows = document
+            .getElementById("itemTableBody")
+            .getElementsByTagName("tr");
 
-        for (let i = 0; i < rows.length; i++) {
+          for (let i = 0; i < rows.length; i++) {
             let row = rows[i];
             let textContent = row.textContent || row.innerText;
             if (textContent.toUpperCase().indexOf(filter) > -1) {
-                rows[i].style.display = "";
+              rows[i].style.display = "";
             } else {
-                rows[i].style.display = "none";
+              rows[i].style.display = "none";
             }
-        }
-    });
-        fetchItems();
+          }
+        });
+        fetchUsers();
 
         //Fetch items
-        async function fetchItems() {
+        async function fetchUsers() {
           try {
             const response = await fetch(
-              "http://localhost:5000/api/v1/item/getall"
+              "http://localhost:5000/api/v1/auth/getall"
             );
             if (!response.ok) throw new Error("Failed to fetch");
             const data = await response.json();
-            if (data && data.data && data.data.items) {
-              displayItems(data.data.items);
+            if (data && data.data && data.data.users) {
+              displayUsers(data.data.users);
             } else {
               console.error("Expected data structure not found:", data);
             }
           } catch (error) {
-            console.error("Error fetching items:", error);
+            console.error("Error fetching users:", error);
           }
         }
 
         //Display items in table rows
-        function displayItems(items) {
+        function displayUsers(users) {
           const container = document.getElementById("itemTableBody");
           const staticRow = document.createElement("tr");
-          let rowIndex = 1; 
-          container.appendChild(staticRow); 
+          let rowIndex = 1;
+          container.appendChild(staticRow);
 
-          items.forEach((item) => {
+          users.forEach((user) => {
             const row = document.createElement("tr");
             row.innerHTML = `
             <td>${rowIndex}</td>
-            <td>${item.item_name}</td>
-            <td>${item.brand}</td>
-            <td>${item.price}</td>
-            <td>${item.qty}</td>
-            <td>${item.size}</td>
-            <td>${item.enabled ? "Active" : "Inactive"}</td>
+            <td>${user.first_name}</td>
+            <td>${user.last_name}</td>
+            <td>${user.mobile}</td>
+            <td>${user.email}</td>
+            <td>${user.gender}</td>
             <td>
                 <center>
-                <button onclick="editItem('${
-                  item._id
-                }')" class="edit-btn">Edit</button>
-                <button onclick="deleteItem('${
-                  item._id
+                  <button onclick="openEditModal('${encodeURIComponent(
+                    JSON.stringify(user)
+                  )}')" class="edit-btn">Edit</button>
+
+                <button onclick="deleteUser('${
+                  user._id
                 }')" class="delete-btn">Delete</button>
                 </center>
             </td>
@@ -281,7 +324,124 @@
             rowIndex++;
           });
         }
+
+        document
+          .querySelector(".add-button")
+          .addEventListener("click", function () {
+            document.getElementById("myModal").style.display = "block";
+          });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          document.getElementById("myModal").style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == document.getElementById("myModal")) {
+            document.getElementById("myModal").style.display = "none";
+          }
+        };
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const jsonData = {};
+        
+        // Convert FormData to JSON
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+
+        // Post the data to the backend
+        fetch("http://localhost:5000/api/v1/auth/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jsonData),
+        })
+        .then((response) => {
+            if (!response.ok) throw new Error("Failed to create user");
+            return response.json();
+        })
+        .then((data) => {
+            alert("User added successfully!");
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.error("Error adding user:", error);
+            alert("Error adding user.");
+        });
+    });
+});
+
+      function openEditModal(itemJson) {
+        const item = JSON.parse(decodeURIComponent(itemJson));
+
+        document.getElementById("edit-id").value = item._id;
+        document.getElementById("edit-item_name").value = item.item_name;
+        document.getElementById("edit-qty").value = item.qty;
+        document.getElementById("edit-price").value = item.price;
+        document.getElementById("edit-size").value = item.size;
+        document.getElementById("edit-brand").value = item.brand;
+        document.getElementById("edit-enabled").checked = item.enabled;
+
+        // Open Edit modal
+        document.getElementById("editModal").style.display = "block";
+      }
+
+      document.getElementById("contact2").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const itemId = document.getElementById("edit-id").value;
+        const updatedData = {
+            item_name: document.getElementById("edit-item_name").value,
+            qty: parseInt(document.getElementById("edit-qty").value, 10),
+            price: document.getElementById("edit-price").value,
+            size: document.getElementById("edit-size").value,
+            brand: document.getElementById("edit-brand").value,
+            enabled: document.getElementById("edit-enabled").checked, // Captures true/false for the checkbox
+        };
+
+        fetch(`http://localhost:5000/api/v1/item/update/${itemId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+        })
+        .then((response) => {
+            if (!response.ok) throw new Error("Failed to update item");
+            return response.json();
+        })
+        .then((data) => {
+            alert("Item updated successfully!");
+            location.reload();
+        })
+        .catch((error) => {
+            console.error("Error updating item:", error);
+            alert("Failed to update item.");
+        });
+    });
+
+      // Close modal when the close button is clicked
+      document.querySelector(".close2").onclick = function () {
+        document.getElementById("editModal").style.display = "none";
+      };
+
+      // Close the modal if clicked outside of it
+      window.onclick = function (event) {
+        if (event.target == document.getElementById("editModal")) {
+          document.getElementById("editModal").style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>

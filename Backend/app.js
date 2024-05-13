@@ -3,6 +3,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
+const multer = require('multer');
 const hpp = require("hpp");
 const cors = require("cors");
 const compression = require("compression");

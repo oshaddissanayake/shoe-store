@@ -322,6 +322,20 @@ tr:nth-child(even) {
     text-decoration: none;
     cursor: pointer;
   }
+
+  .close2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
   
 
   * {
@@ -337,7 +351,7 @@ tr:nth-child(even) {
       text-rendering:optimizeLegibility;
   }
   
-  #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+  #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="password"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
   
   #contact {
       background:#F9F9F9;
@@ -366,7 +380,7 @@ tr:nth-child(even) {
       width: 50%;
   }
   
-  #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact input[type="number"], #contact textarea {
+  #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="password"], #contact input[type="url"], #contact input[type="number"], #contact select, #contact input[type="file"] #contact textarea {
       width:100%;
       border:1px solid #CCC;
       background:#FFF;
@@ -374,6 +388,40 @@ tr:nth-child(even) {
       padding:10px;
   }
   
+  .toggle-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-input:checked {
+    background-color: #4CAF50;
+}
+
+.toggle-input:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    background-color: white;
+    transition: transform 0.3s;
+}
+
+.toggle-input:checked:before {
+    transform: translateX(20px);
+}
+
+
   #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
       -webkit-transition:border-color 0.3s ease-in-out;
       -moz-transition:border-color 0.3s ease-in-out;
@@ -422,5 +470,76 @@ tr:nth-child(even) {
   }
   :-ms-input-placeholder {
    color:#888;
+  }
+  
+  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 input[type="url"], #contact2 textarea, #contact2 button[type="submit"] {
+    font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+  }
+  
+  #contact2 {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 50px 0;
+  }
+  
+  #contact2 h3 {
+    color: #F96;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  
+  #contact2 h4 {
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+  }
+  
+  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 input[type="url"], #contact2 input[type="number"], #contact2 select, #contact2 input[type="file"], #contact2 textarea {
+    width: 100%;
+    border: 1px solid #CCC;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+  }
+  
+  #contact2 input[type="text"]:hover, #contact2 input[type="email"]:hover, #contact2 input[type="tel"]:hover, #contact2 input[type="url"]:hover, #contact2 textarea:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #AAA;
+  }
+  
+  #contact2 textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none;
+  }
+  
+  #contact2 button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #0CF;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  #contact2 button[type="submit"]:hover {
+    background: #09C;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #contact2 button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  #contact2 input:focus, #contact2 textarea:focus {
+    outline: 0;
+    border: 1px solid #999;
   }
   

@@ -3,11 +3,34 @@ const catchAsync = require("../Utils/catchAsync");
 const jwt = require("jsonwebtoken");
 const AppError = require("../Utils/AppError");
 const { promisify } = require("util");
+const Filter = require("../Utils/Filters");
 const sendEmail = require("../Utils/email");
 const crypto = require("crypto");
 
 /**Auth controllers */
 
+//Get all users
+exports.AllUsers = catchAsync(async (req, res, next) => {
+  let Respond = new Filter(User, req.query).filter().sort().limitFields().paginate();
+  const users = await Respond.query;
+  res.status(201).json({
+      status: "success",
+      data: {
+          users,
+      },
+  });
+});
+
+//Delete user
+exports.DeleteUser = catchAsync(async (req, res) => {
+  let deleteUser = await User.findByIdAndDelete(req.params.id)
+  res.status(200).json({
+      status: "success",
+      data: {
+          deleteUser,
+      },
+  });
+});
 //Register new user
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);

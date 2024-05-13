@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="admin_styles.css" />
 
     <script>
-      //Delete item
+      //Delete user
       function deleteUser(id) {
         if (confirm("Are you sure you want to delete this user?")) {
           fetch(`http://localhost:5000/api/v1/auth/delete/${id}`, {
@@ -67,7 +67,7 @@
             </tr>
           </thead>
           <tbody id="itemTableBody">
-            <!-- Items will be loaded here by JavaScript -->
+            <!-- Users will be loaded here by JavaScript -->
           </tbody>
         </table>
       </div>
@@ -102,7 +102,7 @@
                 id="last_name"
                 type="text"
                 name="last_name"
-                tabindex="1"
+                tabindex="2"
                 required
                 autofocus
               />
@@ -123,7 +123,9 @@
                 id="mobile"
                 type="tel"
                 name="mobile"
-                tabindex="3"
+                tabindex="4"
+                maxlength="10"
+                pattern="\d{10}"
                 required
               />
             </fieldset>
@@ -133,7 +135,7 @@
                 id="password"
                 type="password"
                 name="password"
-                tabindex="3"
+                tabindex="5"
                 required
               />
             </fieldset>
@@ -168,87 +170,79 @@
       <div class="modal-content">
         <span class="close2">&times;</span>
         <h2 style="text-align: center; color: rgb(58, 58, 58)">
-          Edit Item Details
+          Edit User Details
         </h2>
         <form id="contact2">
           <input type="hidden" id="edit-id" />
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Name*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">First Name*</p>
             <input
-              id="edit-item_name"
+              id="edit-first_name"
               type="text"
-              placeholder="Enter Item Name*"
-              name="edit-item_name"
+              placeholder="Enter First Name*"
+              name="edit-first_name"
               tabindex="1"
               autofocus
               required
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Qty*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Last Name*</p>
             <input
-              placeholder="Enter Item Qty*"
-              id="edit-qty"
-              type="number"
-              min="1"
+              placeholder="Enter Last Name*"
+              id="edit-last_name"
+              type="text"
               tabindex="2"
               required
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Price*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Email*</p>
             <input
-              placeholder="Your Item Price*"
-              id="edit-price"
-              type="text"
-              name="edit-price"
-              min="0"
+              placeholder="Enter Email*"
+              id="edit-email"
+              type="email"
+              name="edit-email"
               tabindex="3"
               required
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Size*</p>
-            <select id="edit-size" name="edit-size" required>
-              <option value="" disabled selected>
-                Please Select Shoe Size*
-              </option>
-              <option value="40">40</option>
-              <option value="41">41</option>
-              <option value="42">42</option>
-              <option value="43">43</option>
-              <option value="44">44</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Brand*</p>
-            <select id="edit-brand" name="edit-brand" required>
-              <option value="" disabled selected>
-                Please Select Shoe Brand*
-              </option>
-              <option value="Nike">Nike</option>
-              <option value="Addidas">Addidas</option>
-              <option value="Puma">Puma</option>
-              <option value="New Balance">New Balance</option>
-              <option value="Tommy">Tommy</option>
-            </select>
-          </fieldset>
-          <br />
-          <!-- <fieldset>
-            <label for="image">Upload Image*</label>
-            <input type="file" id="image" name="image" accept="image/png" required>
-          </fieldset> -->
-          <fieldset>
-            <label for="active-toggle">Active:</label>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Phone Number*</p>
             <input
-              type="checkbox"
-              id="edit-enabled"
-              name="enabled"
-              class="toggle-input"
+              placeholder="Enter Phone Number*"
+              id="edit-mobile"
+              type="tel"
+              name="edit-mobile"
+              tabindex="4"
+              maxlength="10"
+              pattern="\d{10}"
+              required
             />
           </fieldset>
+          <fieldset>
+            <p style="font-size: small; padding: 10px; font-weight: 600;">Password*</p>
+            <input
+              placeholder="Enter Password*"
+              id="edit-password"
+              type="password"
+              name="edit-password"
+              tabindex="5"
+              required
+            />
+            <fieldset>
+              <p style="font-size: small; padding: 10px; font-weight: 600;">Gender*</p>
+              <select id="edit-gender" name="edit-gender" required>
+                <option value="" disabled selected>
+                  Please Select Gender*
+                </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </fieldset>
           <br />
-          <button style="width: 40%" type="submit">Update Item</button>
+          <button style="width: 40%" type="submit">Update User</button>
         </form>
       </div>
     </div>
@@ -274,7 +268,7 @@
         });
         fetchUsers();
 
-        //Fetch items
+        //Fetch users
         async function fetchUsers() {
           try {
             const response = await fetch(
@@ -292,7 +286,7 @@
           }
         }
 
-        //Display items in table rows
+        //Display users in table rows
         function displayUsers(users) {
           const container = document.getElementById("itemTableBody");
           const staticRow = document.createElement("tr");
@@ -331,15 +325,12 @@
             document.getElementById("myModal").style.display = "block";
           });
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
           document.getElementById("myModal").style.display = "none";
         };
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
           if (event.target == document.getElementById("myModal")) {
             document.getElementById("myModal").style.display = "none";
@@ -353,8 +344,6 @@
         event.preventDefault();
         const formData = new FormData(form);
         const jsonData = {};
-        
-        // Convert FormData to JSON
         formData.forEach((value, key) => {
             jsonData[key] = value;
         });
@@ -382,16 +371,16 @@
     });
 });
 
-      function openEditModal(itemJson) {
-        const item = JSON.parse(decodeURIComponent(itemJson));
+      function openEditModal(userJson) {
+        const user = JSON.parse(decodeURIComponent(userJson));
 
-        document.getElementById("edit-id").value = item._id;
-        document.getElementById("edit-item_name").value = item.item_name;
-        document.getElementById("edit-qty").value = item.qty;
-        document.getElementById("edit-price").value = item.price;
-        document.getElementById("edit-size").value = item.size;
-        document.getElementById("edit-brand").value = item.brand;
-        document.getElementById("edit-enabled").checked = item.enabled;
+        document.getElementById("edit-id").value = user._id;
+        document.getElementById("edit-first_name").value = user.first_name;
+        document.getElementById("edit-last_name").value = user.last_name;
+        document.getElementById("edit-mobile").value = user.mobile;
+        document.getElementById("edit-email").value = user.email;
+        document.getElementById("edit-gender").value = user.gender;
+        document.getElementById("edit-password").value = user.password;
 
         // Open Edit modal
         document.getElementById("editModal").style.display = "block";
@@ -400,17 +389,17 @@
       document.getElementById("contact2").addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const itemId = document.getElementById("edit-id").value;
+        const userId = document.getElementById("edit-id").value;
         const updatedData = {
-            item_name: document.getElementById("edit-item_name").value,
-            qty: parseInt(document.getElementById("edit-qty").value, 10),
-            price: document.getElementById("edit-price").value,
-            size: document.getElementById("edit-size").value,
-            brand: document.getElementById("edit-brand").value,
-            enabled: document.getElementById("edit-enabled").checked, // Captures true/false for the checkbox
+            first_name: document.getElementById("edit-first_name").value,
+            last_name: document.getElementById("edit-last_name").value,
+            mobile: document.getElementById("edit-mobile").value,
+            email: document.getElementById("edit-email").value,
+            password: document.getElementById("edit-password").value,
+            gender: document.getElementById("edit-gender").value,
         };
 
-        fetch(`http://localhost:5000/api/v1/item/update/${itemId}`, {
+        fetch(`http://localhost:5000/api/v1/auth/update/${userId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -418,25 +407,23 @@
             body: JSON.stringify(updatedData),
         })
         .then((response) => {
-            if (!response.ok) throw new Error("Failed to update item");
+            if (!response.ok) throw new Error("Failed to update user");
             return response.json();
         })
         .then((data) => {
-            alert("Item updated successfully!");
+            alert("User updated successfully!");
             location.reload();
         })
         .catch((error) => {
-            console.error("Error updating item:", error);
-            alert("Failed to update item.");
+            console.error("Error updating user:", error);
+            alert("Failed to update user.");
         });
     });
 
-      // Close modal when the close button is clicked
       document.querySelector(".close2").onclick = function () {
         document.getElementById("editModal").style.display = "none";
       };
 
-      // Close the modal if clicked outside of it
       window.onclick = function (event) {
         if (event.target == document.getElementById("editModal")) {
           document.getElementById("editModal").style.display = "none";

@@ -21,6 +21,18 @@ exports.AllUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+//Update user
+exports.UpdateUser = catchAsync(async (req, res) => {
+  req.body.user = req.user
+  let all_Users = await User.findByIdAndUpdate(req.params.id, req.body)
+  res.status(201).json({
+      status: "success",
+      data: {
+          all_Users,
+      },
+  });
+});
+
 //Delete user
 exports.DeleteUser = catchAsync(async (req, res) => {
   let deleteUser = await User.findByIdAndDelete(req.params.id)

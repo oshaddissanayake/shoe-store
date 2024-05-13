@@ -186,7 +186,9 @@
         <form id="contact2">
           <input type="hidden" id="edit-id" />
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Name*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600">
+              Item Name*
+            </p>
             <input
               id="edit-item_name"
               type="text"
@@ -198,7 +200,9 @@
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Qty*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600">
+              Item Qty*
+            </p>
             <input
               placeholder="Enter Item Qty*"
               id="edit-qty"
@@ -209,7 +213,9 @@
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Item Price*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600">
+              Item Price*
+            </p>
             <input
               placeholder="Your Item Price*"
               id="edit-price"
@@ -221,7 +227,9 @@
             />
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Size*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600">
+              Shoe Size*
+            </p>
             <select id="edit-size" name="edit-size" required>
               <option value="" disabled selected>
                 Please Select Shoe Size*
@@ -234,7 +242,9 @@
             </select>
           </fieldset>
           <fieldset>
-            <p style="font-size: small; padding: 10px; font-weight: 600;">Shoe Brand*</p>
+            <p style="font-size: small; padding: 10px; font-weight: 600">
+              Shoe Brand*
+            </p>
             <select id="edit-brand" name="edit-brand" required>
               <option value="" disabled selected>
                 Please Select Shoe Brand*
@@ -345,15 +355,12 @@
             document.getElementById("myModal").style.display = "block";
           });
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
           document.getElementById("myModal").style.display = "none";
         };
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
           if (event.target == document.getElementById("myModal")) {
             document.getElementById("myModal").style.display = "none";
@@ -414,46 +421,46 @@
         document.getElementById("editModal").style.display = "block";
       }
 
-      document.getElementById("contact2").addEventListener("submit", function (event) {
-        event.preventDefault();
+      document
+        .getElementById("contact2")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-        const itemId = document.getElementById("edit-id").value;
-        const updatedData = {
+          const itemId = document.getElementById("edit-id").value;
+          const updatedData = {
             item_name: document.getElementById("edit-item_name").value,
             qty: parseInt(document.getElementById("edit-qty").value, 10),
             price: document.getElementById("edit-price").value,
             size: document.getElementById("edit-size").value,
             brand: document.getElementById("edit-brand").value,
-            enabled: document.getElementById("edit-enabled").checked, // Captures true/false for the checkbox
-        };
+            enabled: document.getElementById("edit-enabled").checked,
+          };
 
-        fetch(`http://localhost:5000/api/v1/item/update/${itemId}`, {
+          fetch(`http://localhost:5000/api/v1/item/update/${itemId}`, {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(updatedData),
-        })
-        .then((response) => {
-            if (!response.ok) throw new Error("Failed to update item");
-            return response.json();
-        })
-        .then((data) => {
-            alert("Item updated successfully!");
-            location.reload();
-        })
-        .catch((error) => {
-            console.error("Error updating item:", error);
-            alert("Failed to update item.");
+          })
+            .then((response) => {
+              if (!response.ok) throw new Error("Failed to update item");
+              return response.json();
+            })
+            .then((data) => {
+              alert("Item updated successfully!");
+              location.reload();
+            })
+            .catch((error) => {
+              console.error("Error updating item:", error);
+              alert("Failed to update item.");
+            });
         });
-    });
 
-      // Close modal when the close button is clicked
       document.querySelector(".close2").onclick = function () {
         document.getElementById("editModal").style.display = "none";
       };
 
-      // Close the modal if clicked outside of it
       window.onclick = function (event) {
         if (event.target == document.getElementById("editModal")) {
           document.getElementById("editModal").style.display = "none";

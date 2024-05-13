@@ -422,7 +422,7 @@ tr:nth-child(even) {
 }
 
 
-  #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+  #contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact select:hover, #contact input[type="url"]:hover, #contact textarea:hover {
       -webkit-transition:border-color 0.3s ease-in-out;
       -moz-transition:border-color 0.3s ease-in-out;
       transition:border-color 0.3s ease-in-out;
@@ -472,7 +472,7 @@ tr:nth-child(even) {
    color:#888;
   }
   
-  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 input[type="url"], #contact2 textarea, #contact2 button[type="submit"] {
+  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 select, #contact2 input[type="password"], #contact2 input[type="url"], #contact2 textarea, #contact2 button[type="submit"] {
     font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
   }
   
@@ -495,7 +495,7 @@ tr:nth-child(even) {
     font-size: 13px;
   }
   
-  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 input[type="url"], #contact2 input[type="number"], #contact2 select, #contact2 input[type="file"], #contact2 textarea {
+  #contact2 input[type="text"], #contact2 input[type="email"], #contact2 input[type="tel"], #contact2 select, #contact2 input[type="password"], #contact2 input[type="url"], #contact2 input[type="number"], #contact2 select, #contact2 input[type="file"], #contact2 textarea {
     width: 100%;
     border: 1px solid #CCC;
     background: #FFF;
@@ -503,7 +503,7 @@ tr:nth-child(even) {
     padding: 10px;
   }
   
-  #contact2 input[type="text"]:hover, #contact2 input[type="email"]:hover, #contact2 input[type="tel"]:hover, #contact2 input[type="url"]:hover, #contact2 textarea:hover {
+  #contact2 input[type="text"]:hover, #contact2 input[type="email"]:hover, #contact2 input[type="password"]:hover, #contact2 select:hover, #contact2 input[type="tel"]:hover, #contact2 input[type="url"]:hover, #contact2 textarea:hover {
     -webkit-transition: border-color 0.3s ease-in-out;
     -moz-transition: border-color 0.3s ease-in-out;
     transition: border-color 0.3s ease-in-out;

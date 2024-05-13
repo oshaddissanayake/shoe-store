@@ -3,113 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixelwave Real Estate</title>
+    <title>RichLook Shoe Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="navbar">
-            <div class="logo">Pixelwave Real Estate</div>
+            <div class="logo">RichLook Shoes</div>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Properties</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Shop All</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Sales</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <section class="hero">
-        <h1>Find Your Residence Home</h1>
-        <p>From as low as $10 per day with limited time offer discounts</p>
+        <h1>Discover Your Perfect Pair</h1>
+        <p>Unbeatable prices starting from $25!</p>
     </section>
     <section class="property-types">
-        <h2>What are you looking for?</h2>
+        <h2>Featured Categories</h2>
         <div class="property-grid">
             <div class="property-item">
-                <img src="images/1.jpg" alt="Modern Villa">
-                <h3>Modern Villa</h3>
+                <img src="images/sneakers.jpg" alt="Sneakers">
+                <h3>Sneakers</h3>
             </div>
             <div class="property-item">
-                <img src="images/2.jpg" alt="Apartment">
-                <h3>Apartment</h3>
+                <img src="images/formal.jpg" alt="Formal Shoes">
+                <h3>Formal Shoes</h3>
             </div>
             <div class="property-item">
-                <img src="images/3.jpg" alt="Family House">
-                <h3>Family House</h3>
+                <img src="images/casual.jpg" alt="Casual Shoes">
+                <h3>Casual Shoes</h3>
             </div>
             <div class="property-item">
-                <img src="images/4.jpg" alt="Town House">
-                <h3>Town House</h3>
+                <img src="images/sandals.jpg" alt="Sandals">
+                <h3>Sandals</h3>
             </div>
         </div>
     </section>
-    
-    <!-- City Listings in a single row -->
-    <section class="cities">
-        <h2>Find Properties in These Cities</h2>
-        <div class="city-grid">
-            <div class="city-item">
-                <img src="images/5.jpg" alt="Miami">
-                <h3>Miami</h3>
-                <p>20 Properties</p>
-            </div>
-            <div class="city-item">
-                <img src="images/1.jpg" alt="Los Angeles">
-                <h3>Los Angeles</h3>
-                <p>50 Properties</p>
-            </div>
-            <div class="city-item">
-                <img src="images/2.jpg" alt="New York">
-                <h3>New York</h3>
-                <p>40 Properties</p>
-            </div>
-            <div class="city-item">
-                <img src="images/3.jpg" alt="Florida">
-                <h3>Florida</h3>
-                <p>17 Properties</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Updated Properties section with 3 more items -->
     <div id="properties">
         <div class="property">
-            <img src="images/5.jpg" alt="Wheelwright Cottage">
-            <h3>Wheelwright Cottage</h3>
-            <p>$14,086.00 AUD</p>
-            <p>1800 sq ft</p>
-            <button onclick="addToCart('Wheelwright Cottage', 14086, '1800 sq ft')">Add to Cart</button>
+            <img src="images/boots.jpg" alt="Stylish Boots">
+            <h3>Stylish Boots</h3>
+            <p>$130.00 AUD</p>
+            <p>Various Sizes Available</p>
+            <button onclick="addToCart('Stylish Boots', 130, 'Various Sizes')">Add to Cart</button>
         </div>
         <div class="property">
-            <img src="images/1.jpg" alt="Luxury Villa">
-            <h3>Luxury Villa</h3>
-            <p>$18,500.00 AUD</p>
-            <p>2500 sq ft</p>
-            <button onclick="addToCart('Luxury Villa', 18500, '2500 sq ft')">Add to Cart</button>
+            <img src="images/running.jpg" alt="Running Sneakers">
+            <h3>Running Sneakers</h3>
+            <p>$95.00 AUD</p>
+            <p>Perfect for Athletes</p>
+            <button onclick="addToCart('Running Sneakers', 95, 'Perfect for Athletes')">Add to Cart</button>
         </div>
         <div class="property">
-            <img src="images/2.jpg" alt="Cozy Bungalow">
-            <h3>Cozy Bungalow</h3>
-            <p>$9,999.00 AUD</p>
-            <p>1200 sq ft</p>
-            <button onclick="addToCart('Cozy Bungalow', 9999, '1200 sq ft')">Add to Cart</button>
-        </div>
-        <div class="property">
-            <img src="images/3.jpg" alt="Beachfront Condo">
-            <h3>Beachfront Condo</h3>
-            <p>$22,000.00 AUD</p>
-            <p>2100 sq ft</p>
-            <button onclick="addToCart('Beachfront Condo', 22000, '2100 sq ft')">Add to Cart</button>
-        </div>
-        <div class="property">
-            <img src="images/3.jpg" alt="Beachfront Condo">
-            <h3>Beachfront Condo</h3>
-            <p>$22,000.00 AUD</p>
-            <p>2100 sq ft</p>
-            <button onclick="addToCart('Beachfront Condo', 22000, '2100 sq ft')">Add to Cart</button>
+            <img src="images/high-heels.jpg" alt="High Heels">
+            <h3>High Heels</h3>
+            <p>$105.00 AUD</p>
+            <p>Elegant and Stylish</p>
+            <button onclick="addToCart('High Heels', 105, 'Elegant and Stylish')">Add to Cart</button>
         </div>
     </div>
     
@@ -117,16 +74,15 @@
         <h2>Shopping Cart</h2>
         <ul id="cartItems"></ul>
         <p id="total">Total: $0.00 AUD</p>
-        <button id="checkoutButton" style="display:none;" onclick="checkout()">Go to Checkout</button>
-        <button onclick="clearCart()">Clear Cart</button>
+        <button id="checkoutButton" style="display:none;" onclick="checkout()">Proceed to Checkout</button>
+        <button onclick="clearCart()">Empty Cart</button>
     </div>
     
-    
     <footer>
-        <p>Power your search with our Pixelwave real estate platform for timely listings and a seamless experience.</p>
+        <p>Explore the latest footwear trends at RichLook Shoe Store for the freshest designs and seamless shopping experience.</p>
         <address>
-            Pixelwave Real Estate<br>
-            518-520 5th Ave, New York, NY 000123, USA
+            RichLook Shoes<br>
+            518-520 5th Ave, New York, NY 10018, USA
         </address>
     </footer>
     <script src="script.js"></script>

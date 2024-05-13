@@ -50,7 +50,7 @@ document
       })
         .then((res) => {
           // navigate to index.html
-          window.location.href = "index.html";
+          window.location.href = "login.html";
           console.log(res);
         })
         .catch((err) => {

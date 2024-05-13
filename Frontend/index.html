@@ -143,17 +143,38 @@
             <h2 class="item-category">Men's Shoes</h2>
             <h3 class="item-price">$170</h3>
             <ul id="cartItems"></ul>
-            <button class="add-to-cart">Add to Cart</button>
+            <button onclick="addToCart('Beachfront Condo', 22000, '2100 sq ft');">Add to Cart</button>
           </div>
+
         </div>
       </section>
-    <footer>
-        <p>Explore the latest footwear trends at RichLook Shoe Store for the freshest designs and seamless shopping experience.</p>
-        <address>
-            RichLook Shoes<br>
-            518-520 5th Ave, New York, NY 10018, USA
-        </address>
+      <button onclick="checkout()">Proceed to Checkout</button>
+      <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About RichLook</h4>
+                <p>Explore the latest footwear trends at RichLook Shoe Store for the freshest designs and seamless shopping experience.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="icons/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="icons/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="icons/instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <address>RichLook Shoes<br>518-520 5th Ave, New York, NY 10018, USA</address>
+        </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>

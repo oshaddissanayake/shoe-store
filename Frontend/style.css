@@ -42,21 +42,7 @@ button:hover {
     width: 300px;
 }
 
-#cart {
-  position: fixed; /* Fixed position on the page */
-  right: 20px; /* Positioned to the right */
-  top: 20px; /* Positioned at the top */
-  width: 300px;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  z-index: 1000; /* Make sure it appears above other content */
-}
 
-#cartItems li {
-  list-style: none; /* Removes bullets */
-  margin-bottom: 10px;
-}
 
 #total {
   font-weight: bold;
@@ -103,27 +89,6 @@ footer {
     margin-top: 20px;
 }
 
-#cart {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 300px;
-    background: #ffffff; /* white background for cart */
-    border-left: 1px solid #ccc;
-    padding: 20px;
-    height: 100vh;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-#cart.cart-shown {
-    transform: translateX(0);
-}
-
-#cartItems li {
-    margin-bottom: 10px;
-}
 
 button {
     background-color: #28a745; /* green color for buttons */
@@ -211,7 +176,7 @@ footer {
     margin-top: 10px;
     cursor: pointer;
   }
-  .item-name {
+  .product-title {
     font-size: 1.5em;
     font-weight: 700;
     margin-left: 15px;
@@ -233,7 +198,7 @@ footer {
     cursor: pointer;
     color: rgb(55, 55, 55);
   }
-  .item-price {
+  .price {
     font-size: 1.2em;
     font-weight: 600;
     margin-left: 15px;
@@ -245,7 +210,7 @@ footer {
     color: #ffcc22;
     transition: ease-in-out 0.2s;
   }
-  .img-1 {
+  .product-img {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -257,10 +222,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 01.jpeg");
   }
-  .img-1:hover {
+  .product-img:hover {
     background-image: url("images/shoe\ 01_1.jpeg");
   }
-  .img-2 {
+  .product-img2 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -272,10 +237,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 02.jpeg");
   }
-  .img-2:hover {
+  .product-img2:hover {
     background-image: url("images/shoe\ 02_1.png");
   }
-  .img-3 {
+  .product-img {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -287,10 +252,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 03.png");
   }
-  .img-3:hover {
+  .product-img:hover {
     background-image: url("images/shoe\ 03_1.png");
   }
-  .img-4 {
+  .product-img4 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -302,10 +267,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 04.png");
   }
-  .img-4:hover {
+  .product-img4:hover {
     background-image: url("images/shoe\ 04_1.png");
   }
-  .img-5 {
+  .product-img5 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -317,10 +282,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 05.png");
   }
-  .img-5:hover {
+  .product-img5:hover {
     background-image: url("images/shoe\ 05_1.png");
   }
-  .img-6 {
+  .product-img6 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -332,10 +297,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 06.png");
   }
-  .img-6:hover {
+  .product-img6:hover {
     background-image: url("images/shoe\ 06_1.png");
   }
-  .img-7 {
+  .product-img7 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -347,10 +312,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 07.png");
   }
-  .img-7:hover {
+  .product-img7:hover {
     background-image: url("images/shoe\ 07_1.jpeg");
   }
-  .img-8 {
+  .product-img8 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -362,10 +327,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 08.png");
   }
-  .img-8:hover {
+  .product-img8:hover {
     background-image: url("images/shoe\ 08_1.png");
   }
-  .img-9 {
+  .product-img9 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -377,10 +342,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 09.png");
   }
-  .img-9:hover {
+  .product-img9:hover {
     background-image: url("images/shoe\ 09_1.jpeg");
   }
-  .img-10 {
+  .product-img10 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -392,10 +357,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 10.png");
   }
-  .img-10:hover {
+  .product-img10:hover {
     background-image: url("images/shoe\ 10_1.png");
   }
-  .img-11 {
+  .product-img11 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -407,10 +372,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 11.png");
   }
-  .img-11:hover {
+  .product-img11:hover {
     background-image: url("images/shoe\ 11_1.png");
   }
-  .img-12 {
+  .product-img12 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -422,10 +387,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 12.png");
   }
-  .img-12:hover {
+  .product-img12:hover {
     background-image: url("images/shoe\ 12_1.png");
   }
-  .img-13 {
+  .product-img13 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -437,10 +402,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 13.png");
   }
-  .img-13:hover {
+  .product-img13:hover {
     background-image: url("images/shoe\ 13_1.png");
   }
-  .img-14 {
+  .product-img14 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -452,10 +417,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 14.png");
   }
-  .img-14:hover {
+  .product-img14:hover {
     background-image: url("images/shoe\ 14_1.png");
   }
-  .img-15 {
+  .product-img15 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -467,10 +432,10 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 15.png");
   }
-  .img-15:hover {
+  .product-img15:hover {
     background-image: url("images/shoe\ 15_1.png");
   }
-  .img-16 {
+  .product-img16 {
     height: 350px;
     width: 350px;
     object-fit: cover;
@@ -482,7 +447,7 @@ footer {
     background-repeat: no-repeat;
     background-image: url("images/shoe\ 16.png");
   }
-  .img-16:hover {
+  .product-img16:hover {
     background-image: url("images/shoe\ 16_1.png");
   }
 
@@ -553,7 +518,7 @@ footer {
     color: white;
   }
 
-  .add-to-cart {
+  .add-cart {
     padding: 10px 20px;
     background-color: #f04e23;  /* RichLook's brand color */
     color: white;
@@ -565,7 +530,7 @@ footer {
     bottom: 10px;  /* Adjust this value as needed */
 }
 
-.add-to-cart:hover {
+.add-cart:hover {
     background-color: #ffe168;  /* A darker shade for hover effect */
 }
 
@@ -643,4 +608,111 @@ a {
   .footer-section {
       margin-bottom: 20px;
   }
+}
+.cart {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 360px;
+	min-height: 100vh;
+	padding: 20px;
+	background-color: #141414;
+	box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+	transition: right 0.3s;
+}
+
+.cart.active {
+	right: 0;
+}
+
+.cart-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.cart-box {
+	display: grid;
+	grid-template-columns: 32% 50% 18%;
+	gap: 1rem;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.cart-img {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	padding: 10px;
+}
+
+.detail-box {
+	display: grid;
+	row-gap: 0.5rem;
+}
+
+.cart-product-title {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.cart-price {
+	font-weight: 500;
+}
+
+.cart-quantity {
+	border: 1px solid var(--text-color);
+	outline-color: var(--main-color);
+	width: 2.4rem;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.cart-remove {
+	font-size: 1.5rem;
+	color: var(--main-color);
+	cursor: pointer;
+}
+
+.total {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 1.5rem;
+	border-top: 1px solid var(--text-color);
+}
+
+.total-title {
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.total-price {
+	margin-left: 0.5rem;
+}
+
+.btn-buy {
+	display: flex;
+	margin: 1.5rem auto 0 auto;
+	padding: 12px 20px;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	background-color: var(--main-color);
+	color: var(--bg-color);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.btn-buy:hover {
+	background-color: var(--text-color);
+}
+
+#close-cart {
+	position: absolute;
+	top: 1rem;
+	right: 0.8rem;
+	color: var(--text-color);
+	font-size: 2rem;
+	cursor: pointer;
 }
